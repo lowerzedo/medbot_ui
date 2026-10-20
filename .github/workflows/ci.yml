@@ -1,0 +1,47 @@
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  quality:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.19.0
+          cache: npm
+      - run: npm ci
+      - run: npm run format:check
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm test
+      - run: npm run build
+        env:
+          MEDBOT_AUTH_MODE: oidc
+          MEDBOT_API_URL: http://127.0.0.1:8000
+          MEDBOT_OIDC_ISSUER: http://127.0.0.1:8081/realms/medbot
+          MEDBOT_OIDC_CLIENT_ID: medbot-ui
+          MEDBOT_OIDC_REDIRECT_URI: http://127.0.0.1:3000/api/auth/callback
+          MEDBOT_SESSION_SECRET: ci-only-session-secret-with-at-least-thirty-two-characters
+      - run: npm audit --omit=dev --audit-level=high
+
+  browser:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 24.19.0
+          cache: npm
+      - run: npm ci
+      - run: npx playwright install --with-deps chromium
+      - run: npm run test:e2e -- --project=chromium

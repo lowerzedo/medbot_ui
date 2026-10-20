@@ -1,0 +1,2 @@
+# Keep synthetic source PDFs byte-identical to their backend counterparts.
+*.pdf binary

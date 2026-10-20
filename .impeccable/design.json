@@ -1,0 +1,208 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-23T12:55:29Z",
+  "title": "Design System: MedBot Referral Operations",
+  "extensions": {
+    "colorMeta": {
+      "packet-white": {
+        "role": "neutral",
+        "displayName": "Packet White",
+        "canonical": "oklch(1 0 0)",
+        "tonalRamp": [
+          "oklch(0.15 0 0)",
+          "oklch(0.28 0 0)",
+          "oklch(0.41 0 0)",
+          "oklch(0.54 0 0)",
+          "oklch(0.67 0 0)",
+          "oklch(0.80 0 0)",
+          "oklch(0.90 0 0)",
+          "oklch(1 0 0)"
+        ]
+      },
+      "review-stamp": {
+        "role": "primary",
+        "displayName": "Review Stamp",
+        "canonical": "oklch(0.485 0.158 353.3)",
+        "tonalRamp": [
+          "oklch(0.15 0.055 353.3)",
+          "oklch(0.26 0.09 353.3)",
+          "oklch(0.37 0.13 353.3)",
+          "oklch(0.485 0.158 353.3)",
+          "oklch(0.60 0.14 353.3)",
+          "oklch(0.72 0.10 353.3)",
+          "oklch(0.84 0.06 353.3)",
+          "oklch(0.95 0.027 353.3)"
+        ]
+      },
+      "evidence-blue": {
+        "role": "secondary",
+        "displayName": "Evidence Blue",
+        "canonical": "oklch(0.39 0.09 215)",
+        "tonalRamp": [
+          "oklch(0.15 0.04 215)",
+          "oklch(0.25 0.065 215)",
+          "oklch(0.32 0.08 215)",
+          "oklch(0.39 0.09 215)",
+          "oklch(0.53 0.085 215)",
+          "oklch(0.68 0.065 215)",
+          "oklch(0.82 0.042 215)",
+          "oklch(0.95 0.026 215)"
+        ]
+      },
+      "graphite-ink": {
+        "role": "neutral",
+        "displayName": "Graphite Ink",
+        "canonical": "oklch(0.19 0.016 353.3)",
+        "tonalRamp": [
+          "oklch(0.15 0.012 353.3)",
+          "oklch(0.19 0.016 353.3)",
+          "oklch(0.31 0.018 353.3)",
+          "oklch(0.43 0.017 353.3)",
+          "oklch(0.55 0.014 353.3)",
+          "oklch(0.68 0.011 353.3)",
+          "oklch(0.82 0.008 353.3)",
+          "oklch(0.95 0.004 353.3)"
+        ]
+      }
+    },
+    "typographyMeta": {
+      "display": {
+        "displayName": "Queue Display",
+        "purpose": "Work queue and page titles only."
+      },
+      "title": {
+        "displayName": "Operational Title",
+        "purpose": "Panel and queue section headings."
+      },
+      "body": {
+        "displayName": "Review Body",
+        "purpose": "Instructions, extracted values, and evidence quotes."
+      },
+      "label": {
+        "displayName": "Metadata Label",
+        "purpose": "Table headers, state labels, and compact metadata."
+      }
+    },
+    "shadows": [
+      {
+        "name": "selection-inset",
+        "value": "inset 0 0 0 1px color-mix(in oklch, var(--accent) 55%, white)",
+        "purpose": "Marks the evidence reference currently shown in the source panel."
+      }
+    ],
+    "motion": [
+      {
+        "name": "state-fast",
+        "value": "160ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Hover, focus, and pressed-state feedback."
+      },
+      {
+        "name": "state-medium",
+        "value": "220ms cubic-bezier(0.22, 1, 0.36, 1)",
+        "purpose": "Compact state reveals and panel feedback."
+      }
+    ],
+    "breakpoints": [
+      { "name": "mobile", "value": "640px" },
+      { "name": "compact", "value": "928px" },
+      { "name": "review-stack", "value": "1152px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The single highest-priority safe workflow action.",
+      "html": "<button class=\"ds-button-primary\">Route referral</button>",
+      "css": ".ds-button-primary { min-height: 40px; border: 0; border-radius: var(--radius-md); background: var(--primary); color: white; padding: 10px 14px; font: 650 14px/1.25 var(--font-sans); transition: background-color var(--transition-fast), transform var(--transition-fast); } .ds-button-primary:hover { background: var(--primary-hover); } .ds-button-primary:focus-visible { outline: 3px solid color-mix(in oklch, var(--focus) 78%, white); outline-offset: 2px; } .ds-button-primary:active { transform: translateY(1px); }"
+    },
+    {
+      "name": "Secondary Button",
+      "kind": "button",
+      "refersTo": "button-secondary",
+      "description": "A reversible or secondary review action.",
+      "html": "<button class=\"ds-button-secondary\">Approve value</button>",
+      "css": ".ds-button-secondary { min-height: 40px; border: 1px solid var(--line-strong); border-radius: var(--radius-md); background: var(--bg); color: var(--ink); padding: 10px 14px; font: 650 14px/1.25 var(--font-sans); } .ds-button-secondary:hover { border-color: var(--ink-soft); background: var(--surface); } .ds-button-secondary:focus-visible { outline: 3px solid color-mix(in oklch, var(--focus) 78%, white); outline-offset: 2px; }"
+    },
+    {
+      "name": "Text Input",
+      "kind": "input",
+      "refersTo": "input",
+      "description": "Review correction and filter input.",
+      "html": "<input class=\"ds-input\" value=\"Cardiology consultation\" aria-label=\"Corrected value\">",
+      "css": ".ds-input { width: 100%; min-height: 40px; border: 1px solid var(--line-strong); border-radius: var(--radius-md); background: var(--bg); color: var(--ink); padding: 10px 12px; font: 400 14px/1.35 var(--font-sans); } .ds-input:hover { border-color: var(--ink-muted); } .ds-input:focus { border-color: var(--accent); outline: 0; box-shadow: 0 0 0 3px color-mix(in oklch, var(--focus) 26%, transparent); }"
+    },
+    {
+      "name": "Status Chip",
+      "kind": "chip",
+      "description": "A text-first state label with redundant dot marker.",
+      "html": "<span class=\"ds-status\"><span aria-hidden=\"true\" class=\"ds-status-dot\"></span>Needs review</span>",
+      "css": ".ds-status { display: inline-flex; min-height: 26px; align-items: center; gap: 6px; border-radius: 999px; background: var(--warning-soft); color: color-mix(in oklch, var(--warning) 78%, black); padding: 4px 9px; font: 650 12px/1.1 var(--font-sans); } .ds-status-dot { width: 6px; height: 6px; border-radius: 999px; background: currentColor; }"
+    },
+    {
+      "name": "Evidence Reference",
+      "kind": "custom",
+      "description": "Selects a verified source page and quote.",
+      "html": "<button class=\"ds-evidence\" aria-pressed=\"true\"><svg aria-hidden=\"true\" viewBox=\"0 0 24 24\" width=\"16\" height=\"16\" fill=\"none\"><path d=\"M5.25 6.25h13.5v11.5H5.25zM8.25 9.5h7.5M8.25 12.25h5.5\" stroke=\"currentColor\" stroke-width=\"1.6\"/></svg>Page 1 evidence</button>",
+      "css": ".ds-evidence { display: inline-flex; min-height: 32px; align-items: center; gap: 8px; border: 0; border-radius: var(--radius-md); background: var(--accent-soft); color: color-mix(in oklch, var(--accent) 82%, black); padding: 7px 10px; font: 650 12px/1.2 var(--font-sans); } .ds-evidence:hover, .ds-evidence[aria-pressed=\"true\"] { background: color-mix(in oklch, var(--accent) 15%, white); } .ds-evidence[aria-pressed=\"true\"] { box-shadow: inset 0 0 0 1px color-mix(in oklch, var(--accent) 55%, white); } .ds-evidence:focus-visible { outline: 3px solid color-mix(in oklch, var(--focus) 78%, white); outline-offset: 2px; }"
+    },
+    {
+      "name": "Active Navigation",
+      "kind": "nav",
+      "refersTo": "navigation-active",
+      "description": "The current operational section in the product shell.",
+      "html": "<a class=\"ds-nav-active\" href=\"#\" aria-current=\"page\">Referrals</a>",
+      "css": ".ds-nav-active { display: flex; min-height: 40px; align-items: center; border-radius: var(--radius-md); background: var(--primary-soft); color: color-mix(in oklch, var(--primary) 82%, black); padding: 10px 12px; font: 680 14px/1.25 var(--font-sans); text-decoration: none; } .ds-nav-active:hover { background: color-mix(in oklch, var(--primary) 10%, white); } .ds-nav-active:focus-visible { outline: 3px solid color-mix(in oklch, var(--focus) 78%, white); outline-offset: 2px; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Verified Referral Packet",
+    "overview": "MedBot should feel like a well-organized records workroom in bright daylight: crisp referral pages, precise annotations, and a single review stamp that means an accountable person has acted. The interface is quiet enough for long review sessions, but it makes evidence, uncertainty, and required actions unmistakable. This is a product surface, not a marketing canvas. Familiar controls, compact information hierarchy, and stable side-by-side review matter more than visual novelty. The system rejects chatbot styling, decorative SaaS dashboards, and any visual language that implies clinical decision-making.",
+    "keyCharacteristics": [
+      "Evidence is always one interaction away from the proposed value.",
+      "White and near-white surfaces keep dense records readable in bright office environments.",
+      "Deep rose marks identity and primary action on less than ten percent of a screen.",
+      "Status is expressed with text, shape, and iconography in addition to color.",
+      "Motion is limited to fast state feedback, never page choreography."
+    ],
+    "rules": [
+      {
+        "name": "The Ten Percent Stamp Rule",
+        "body": "Review Stamp is used on no more than ten percent of a screen. Its rarity gives primary actions meaning.",
+        "section": "colors"
+      },
+      {
+        "name": "The Semantic Separation Rule",
+        "body": "Review Stamp is brand identity. Evidence Blue, Verified Green, Attention Amber, and Exception Red keep operational state distinct from brand.",
+        "section": "colors"
+      },
+      {
+        "name": "The Opaque Identifier Rule",
+        "body": "Monospace is reserved for referral IDs, block IDs, and trace IDs. Patient-facing or reviewer-facing values stay in the sans family.",
+        "section": "typography"
+      },
+      {
+        "name": "The Flat Workbench Rule",
+        "body": "Persistent surfaces never float. If a standing panel needs a wide drop shadow to read, its structure is wrong.",
+        "section": "elevation"
+      }
+    ],
+    "dos": [
+      "Do keep the source document and structured referral visible together on review-sized screens.",
+      "Do use 150ms to 220ms state transitions and provide a reduced-motion alternative.",
+      "Do expose loading skeletons, actionable empty states, safe error messages, and visible keyboard focus.",
+      "Do distinguish AI proposals, human-corrected values, verification state, and reviewer approval in text.",
+      "Do keep status controls familiar and require the backend to authorize every action."
+    ],
+    "donts": [
+      "Don't build a generic chatbot or conversational AI interface.",
+      "Don't build a decorative SaaS dashboard around vanity metrics, gradients, glass effects, or oversized cards.",
+      "Don't imply diagnosis, urgency scoring, treatment advice, eligibility, or medical necessity.",
+      "Don't create a dense enterprise admin portal with inconsistent controls, hidden state, or ambiguous actions.",
+      "Don't add motion or decoration that competes with document review.",
+      "Don't use colored side-stripe borders, gradient text, nested cards, or card radii above 16px.",
+      "Don't place patient data, document text, or FHIR payloads in URLs, telemetry, logs, or error messages."
+    ]
+  }
+}

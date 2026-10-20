@@ -1,0 +1,63 @@
+.page {
+  display: grid;
+  min-height: 100vh;
+  place-items: center;
+  background: var(--surface);
+  padding: var(--space-6);
+}
+
+.panel {
+  display: grid;
+  width: min(100%, 27rem);
+  gap: var(--space-6);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  background: var(--bg);
+  padding: clamp(var(--space-6), 6vw, var(--space-10));
+}
+
+.mark {
+  display: grid;
+  width: 2.5rem;
+  height: 2.5rem;
+  place-items: center;
+  border-radius: var(--radius-md);
+  background: var(--primary);
+  color: white;
+  font-weight: 780;
+}
+
+.product {
+  margin: 0 0 var(--space-2);
+  color: var(--primary);
+  font-size: 0.8125rem;
+  font-weight: 700;
+}
+
+.panel h1 {
+  margin: 0;
+  font-size: 1.75rem;
+  font-weight: 720;
+  letter-spacing: -0.025em;
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.summary,
+.boundary {
+  color: var(--ink-soft);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.summary {
+  margin: var(--space-3) 0 0;
+  font-size: 0.875rem;
+}
+
+.boundary {
+  margin: 0;
+  border-top: 1px solid var(--line);
+  padding-top: var(--space-4);
+  font-size: 0.75rem;
+}
